@@ -1,12 +1,27 @@
 {
   "name": "router-motion",
   "version": "1.0.0",
+  "private": true,
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "webpack-dev-server --hot --inline",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "boopathi",
+  "license": "MIT",
+  "dependencies": {
+    "phrontend": "0.0.3",
+    "react": "^0.14.0-beta3",
+    "react-dom": "^0.14.0-beta3",
+    "react-motion": "^0.2.7",
+    "react-router": "^1.0.0-beta3"
+  },
+  "devDependencies": {
+    "babel-loader": "^5.3.2",
+    "react-hot-loader": "^1.2.8",
+    "webpack": "^1.11.0",
+    "webpack-dev-server": "^1.10.1"
+  }
 }
