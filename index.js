@@ -11,10 +11,13 @@ class App extends Component {
   }
 }
 
+let baseHref = '/router-motion/?';
+if (process.env.NODE_ENV === 'production') baseHref = '/';
+
 window.addEventListener('DOMContentLoaded', function() {
   ReactDOM.render((
     <Router history={history}>
-      <Route path='/' component={App}/>
+      <Route path={baseHref} component={App}/>
     </Router>
   ), document.getElementById('react'));
 });

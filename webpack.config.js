@@ -1,3 +1,8 @@
+const webpack = require('webpack');
+
+const _PROD = process.env.NODE_ENV==='production';
+const _DEV = !_PROD;
+
 module.exports = {
   entry: {
     app: './index.js'
@@ -7,14 +12,19 @@ module.exports = {
     publicPath: 'public',
     filename: '[name].bundle.js'
   },
-  devtool: 'cheap-module-inline-source-map',
+  devtool: _DEV ? 'cheap-module-inline-source-map' : 'source-map',
   module: {
     loaders: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'react-hot!babel'
+        loader: _DEV ? 'react-hot!babel' : 'babel'
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': { 'NODE_ENV': JSON.stringify(process.env.NODE_ENV) }
+    })
+  ]
 };
